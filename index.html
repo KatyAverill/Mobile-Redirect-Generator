@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Redirect Generator</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+    	<h1>Mobile Redirect Generator</h1>
+
+    	<form>
+    		Mobile URL: <input type="text" name="mobileurl" id="mobileurl"><br>
+    		<p>Which devices do you want to redirect?</p>
+    		<input type="checkbox" name="device" value="Android" id="android">Android<br>
+    		<input type="checkbox" name="device" value="iPhone" id="iphone">iPhone<br>
+    		<input type="checkbox" name="device" value="Blackberry" id="blackberry">Blackberry<br>
+    		<p>Redirect tablet devices?</p>
+    		<input type="radio" name="tablet" value="yes" id="tablet">Yes<br>
+    		<input type="radio" name="tablet" value="no">No<br>
+    		<p>Add link to view full site?</p>
+    		<input type="radio" name="fullsite" value="yes" id="fullsiteTrue">Yes<br>
+    		<input type="radio" name="fullsite" value="no" id="fullsiteFalse">No<br>
+
+    		<input type="submit" value="submit" onclick="redirect(); fullsitecode(); return false;">
+    	</form>
+
+    	<hr>
+
+    	<script type="text/JavaScript">
+
+    			function redirect () {
+    					{
+						var x=document.getElementById('mobileurl').value;
+						}
+						if (document.getElementById('mobileurl').value){
+    				document.getElementById('redirect').value = x;
+    					}
+    					if (document.getElementById('android').checked){
+    				document.getElementById('redirect').value += "android\r\n";
+    					}
+    					if (document.getElementById('iphone').checked){
+    				document.getElementById('redirect').value += "iphone\r\n";
+    					}
+    					if (document.getElementById('blackberry').checked){
+    				document.getElementById('redirect').value += "blackberry\r\n";
+    					}
+    					if (document.getElementById('tablet').checked){
+    				document.getElementById('redirect').value += "tablet\r\n";
+    					}
+
+    				}
+    	</script>
+
+    	<form>
+    		<p>Here is your JavaScript redirect code:</p>
+    		<textarea style="height:300px;" cols="100" id="redirect"></textarea>
+    	</form>
+
+		<script type="text/JavaScript">
+    			function fullsitecode () {
+    					if (document.getElementById('fullsiteTrue').checked){
+    				document.getElementById('fullsitecode').value += "View Full Site\r\n";
+    					}
+    					if (document.getElementById('fullsiteFalse').checked){
+    				document.getElementById('fullsitecode').value += "N/A\r\n";
+    					}
+    				}
+    	</script>
+
+    	<form>
+    		<p>Here is the code to view full site:</p>
+    		<textarea style="height:120px;" cols="100" id="fullsitecode"></textarea>
+    	</form>
+
+    </body>
+
+</html>
